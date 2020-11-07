@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:写Dao接口的全限定名-->
+<mapper namespace="com.it.dao.UserDao">
+
+    <!--sql标签：提取公共的sql语句-->
+    <sql id="commonQuery">
+        select uid ,username ,birthday ,sex, address from t_user
+    </sql>
+
+    <select id="findByQueryVo" parameterType="com.it.vo.QueryVo" resultType="com.it.vo.User">
+      <!-- SELECT * from t_user where uid=#{user.uid} and username like #{user.username}-->
+        <!--方式一：使用where 1=1 拼接条件-->
+        <!--SELECT * from t_user where 1=1
+        <if test="user!=null and user.uid!=0">
+            AND uid=#{user.uid}
+        </if>
+        <if test="user!=null and user.username!=null and user.username.length>0">
+            AND username like #{user.username}
+        </if>-->
+        <!--方式二：使用where 标签-->
+        <include refid="commonQuery"></include>
+        <where>
+            <if test="user!=null and user.uid!=0">
+                AND uid=#{user.uid}
+            </if>
+            <if test="user!=null and user.username!=null and user.username.length>0">
+                AND username like #{user.username}
+            </if>
+        </where>
+    </select>
+
+    <!--foreach遍历的第一种方式：使用or连接-->
+    <!--select uid ,username ,birthday ,sex, address from t_user
+     WHERE username LIKE '张%'
+     AND (uid =1 OR uid =2 OR uid=6)-->
+    <select id="findByQueryVo2" resultType="com.it.vo.User" parameterType="com.it.vo.QueryVo">
+        select uid ,username ,birthday ,sex, address from t_user
+        <where>
+           <if test="user!=null and user.username!=null and user.username.length>0">
+               AND username like #{user.username}
+           </if>
+            <if test="ids!=null">
+                <!--
+                collection:pojo中集合的属性名；
+                open：sql语句的开始；
+                item：每次遍历的赋值变量（名字随便取）；；
+                separator：item 和 item 之间的分割
+                close:语句的结尾
+                -->
+                <foreach collection="ids" open="and (uid=" item="id" separator="or uid=" close=")">
+                  #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <!--foreach遍历的第二种方式：使用 in()-->
+    <!--select uid ,username ,birthday ,sex, address from t_user
+     WHERE username LIKE '张%'
+      AND  uid IN (1,7,10,18)-->
+    <select id="findByQueryVo3" resultType="com.it.vo.User" parameterType="com.it.vo.QueryVo">
+        select uid ,username ,birthday ,sex, address from t_user
+        <where>
+            <if test="user!=null and user.username!=null and user.username.length>0">
+                AND username like #{user.username}
+            </if>
+            <if test="ids!=null">
+                <foreach collection="ids" open="AND uid in(" item="id" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,121 @@
+1.parameterType类型
+    1.1 类型为基本类型（字符串等）
+        直接写#{任意字段}或者${value}
+        建议：与Dao接口中的参数名称保持一致
+    1.2 类型为定义的pojo类型
+        #{}或者${}，花括号中的值为 pojo 属性名称（如：#{userName}）
+    1.3 pojo中包含另一个对象：
+        例如：人员Person中注入：Account account
+        Dao接口中传入Person person:
+            List<Account> findAll(Person person);
+            取值先取到account属性，再取Account中的属性值:例如
+                #{account.name} 或者${account.name}
+
+2.resultType类型
+    注意：使用resultType封装，前提是查询出来的数据库表的列名和pojo中的属性名一致
+    2.1 类型为基本类型（例如：返回统计的总数）：直接写对应的java类型
+        resultType="int"
+    2.2 类型为对应的pojo类型：直接写pojo的全路径名称：
+        resultType="com.it.vo.User"
+    2.3 类型为List<T>，直接集合中的泛型：
+        resultType="com.it.vo.User"
+    2.4 resultMap:
+         <select id="findByUid" parameterType="int" resultMap="findByUidMap">
+                select uid uid_,
+                username username_ ,
+                birthday birthday_ ,
+                sex sex_ ,
+                address address_
+                from t_user where uid = #{id}
+            </select>
+
+            <resultMap id="findByUidMap" type="com.itheima.bean.User">
+                <id property="uid" column="uid_"></id>
+                <result property="username" column="username_"></result>
+                <result property="birthday" column="birthday_"></result>
+                <result property="sex" column="sex_"></result>
+                <result property="address" column="address_"></result>
+            </resultMap>
+            注： column:写数据库表查询出来的列名，property写pojo的属性名
+
+3. 日志的使用：
+    1. 导入坐标
+        <!-- log start -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.6</version>
+        </dependency>
+    2. 拷贝log4j.properties到resources目录：创建文件名：log4j.properties，将以下内容拷贝到文件中：
+      ##设置日志记录到控制台的方式
+      log4j.appender.std=org.apache.log4j.ConsoleAppender
+      log4j.appender.std.Target=System.err
+      log4j.appender.std.layout=org.apache.log4j.PatternLayout
+      log4j.appender.std.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %5p %c{1}:%L - %m%n
+
+      ##设置日志记录到文件的方式
+      log4j.appender.file=org.apache.log4j.FileAppender
+      log4j.appender.file.File=mylog.txt
+      log4j.appender.file.layout=org.apache.log4j.PatternLayout
+      log4j.appender.file.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
+
+      ##日志输出的级别，以及配置记录方案
+      log4j.rootLogger= debug,std,file
+      注： 日志级别:error > warn > info>debug>trace，本地一般debug即可，上线一般使用error级别
+
+4.mybatis sql深入：
+    1.sql标签:用于提取公共的sql语句；
+        <sql id="commonQuery">
+           select uid ,username ,birthday ,sex, address from t_user
+        </sql>
+        在需要引用的地方使用：<include refid="commonQuery"></include>引用
+    2.动态 SQL 之if标签:用于动态拼接sql语句，一般与where标签一起使用：
+        <where>
+        	<if test="user!=null and user.uid!=0">
+        		AND uid=#{user.uid}
+        	</if>
+        	<if test="user!=null and user.username!=null and user.username.length>0">
+        		AND username like #{user.username}
+        	</if>
+        </where>
+    3.foreach标签：遍历
+        示例：select uid ,username ,birthday ,sex, address from t_user
+             WHERE username LIKE '张%'
+              AND  uid IN (1,7,10,18)
+        collection:pojo中集合的属性名
+        open：sql语句的开始
+        item：每次遍历的赋值变量（名字随便取)
+        separator：item 和 item 之间的分割
+        close:语句的结尾
+
+        <select id="findByQueryVo3" resultType="com.it.vo.User" parameterType="com.it.vo.QueryVo">
+        	select uid ,username ,birthday ,sex, address from t_user
+        	<where>
+        		<if test="user!=null and user.username!=null and user.username.length>0">
+        			AND username like #{user.username}
+        		</if>
+        		<if test="ids!=null">
+        			<foreach collection="ids" open="AND uid in(" item="id" separator="," close=")">
+        				#{id}
+        			</foreach>
+        		</if>
+        	</where>
+        </select>
+
+
+
+
+
+
