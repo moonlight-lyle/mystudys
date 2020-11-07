@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入properties文件-->
+    <properties resource="jdbc.properties"></properties>
+    <!--给pojo取别名-->
+    <typeAliases>
+        <!--单个取别名-->
+        <!--<typeAlias type="com.it.vo.User" alias="User"></typeAlias>-->
+        <!--批量取别名，指定包名，别名默认为类名-->
+        <package name="com.it.vo"></package>
+    </typeAliases>
+    <!--配置连接数据的环境：default：指定的使用哪一个环境-->
+    <environments default="development">
+        <environment id="development">
+            <!--使用的是jdbc事务-->
+            <transactionManager type="JDBC"/>
+            <!--mybatis默认的连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--配置Dao映射文件：xxDao.xml-->
+    <mappers>
+        <!--方式一：写映射文件路径-->
+        <!--<mapper resource="com/it/dao/UserDao.xml"/>-->
+        <!--方式二：指定包名，映射文件必须和接口名一致，层级也一致-->
+        <package name="com.it.dao"></package>
+    </mappers>
+</configuration>
