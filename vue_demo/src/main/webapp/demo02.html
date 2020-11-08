@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击事件</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <br/>
+        <input type="button" value="点我吧" @click="changeValue">
+    </div>
+
+</body>
+<script>
+    var vue=new Vue({
+            el: '#app',
+            data: {
+                message:"hello...vue"
+            },
+            methods: {
+                changeValue:function(){
+                    //alert('hello...')
+                    this.message='你好。。帅哥！'
+                }
+            }
+        });
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue入门</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+
+</body>
+<!--创建Vue实例-->
+<script>
+    new Vue({
+        el: '#app',//取到id为app的区域
+        data:{
+            message: 'Hello...Vue'
+        },
+        methods:{
+
+        }
+    })
+
+
+</script>
+</html>
