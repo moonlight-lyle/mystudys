@@ -1,0 +1,55 @@
+1.变量：
+    js中变量使用var声明，且js是弱类型语言，没有java中的类型；
+    var i = 10;   var str = "哈哈"；
+
+2.js中的5种数据类型：
+    `number`数值类型`1`, `2`, `3`, `3.14`
+    `boolean`布尔类型`true`, `false`
+    `string`字符串类型`"hello"`, 'hello'
+    `object`对象类型`new Date()`,  `null`
+    `undefined`未定义类型var a;
+    判断变量的类型：console.log(typeof(变量名))
+
+3.运算符：
+    var i = 2;
+    var j = "2";
+    alert(i==j); // ==比较的仅仅是数值, true
+    alert(i===j); // ===比较的是数值和类型.false
+
+4.循环语句：
+     //99乘法表
+      <script>
+        for(var i = 1; i<=9 ; i++){
+        	for(var j =1; j <= i;j++){
+        		document.write(j+""+i+"="+ji);
+        		//空格
+        		document.write("&nbsp");
+        	}
+        	//换行
+        document.write("<br />");
+       }
+     </script>
+     注："&nbsp"在js中表示空格
+
+5.函数：
+    普通函数：
+        function 函数名(形参列表){
+            函数体
+            [return 返回值;]
+        }
+
+    匿名函数：
+        function(形参列表){
+            函数体
+            [return 返回值;]
+        }
+
+6.事件：
+    普通函数方式：标签属性
+        <标签 属性="js代码，调用函数"></标签>
+    匿名函数方式：
+        <script>
+            标签对象.事件属性 = function(){
+                //执行一段代码
+            }
+        </script>

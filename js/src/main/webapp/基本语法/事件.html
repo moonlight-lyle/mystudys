@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+<!--方式一：标签属性-->
+<input type="button" value="点我吧" onclick="sayHello()">
+<!--方式二：匿名函数方式-->
+<input id="inputId" type="button" value="点我巴巴">
+
+</body>
+<script>
+    function sayHello() {
+        alert("Hello..")
+    }
+
+    document.getElementById("inputId").onclick=function () {
+        alert("你好我好大家好..")
+    }
+</script>
+
+</html>
