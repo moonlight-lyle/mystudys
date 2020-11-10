@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Json数据格式</title>
+</head>
+<body>
+
+    <script>
+        //1.Json对象
+        var p={"name":"张三","age":18,"address":"深圳"}
+        //解析
+        console.log(p,name)
+        //2.数组+对象
+        var arr=[{"name":"张三","age":18,"address":"深圳"},{"name":"李四","age":20,"address":"广州"}]
+        var name=arr[0].name
+        console.log(name)
+        //3.嵌套
+        var ppp = {
+            "p1": {"name": "zs", "age": 18},
+            "p23": [
+                {"name": "ls", "age": 19},
+                {"name": "ww", "age": 20}
+                ]
+        };
+
+    </script>
+
+</body>
+</html>

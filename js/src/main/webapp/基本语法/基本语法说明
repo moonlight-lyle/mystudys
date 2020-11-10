@@ -53,3 +53,9 @@
                 //执行一段代码
             }
         </script>
+
+7.数组创建：
+    注：js中数组长度可变，没有数组索引越界
+    - var arr = new Array(size)`
+    - `var arr = new Array(element1, element2, element3, ...)`
+    - `var arr = [element1, element2, element3, ...];`
