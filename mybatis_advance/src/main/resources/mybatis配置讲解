@@ -114,6 +114,12 @@
         	</where>
         </select>
 
+5.sql小技巧：
+    在sql查询时，查询字段以逗号隔开；
+    例如：查询表中名字相同的id，id以逗号隔开；在mysql中可以使用GROUP_CONCAT
+    select t.username,GROUP_CONCAT(uid ORDER BY uid desc SEPARATOR ',') from t_user t group by t.username;
+    注意：在oracle中使用listagg函数
+
 
 
 

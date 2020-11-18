@@ -1,0 +1,11 @@
+常见的元注解：
+元注解概念：定义在注解上的注解称为元注解；
+@Target : 定义注解可以使用的位置
+    例如：@Target(ElementType.METHOD)：表示被@Target修饰的注解只能用在方法上；
+    ElementType是一个枚举类
+@Retention : 定义注解的保留策略
+    例如：@Retention(RetentionPolicy.SOURCE)
+    RetentionPolicy也是一个枚举类，有三种：
+    SOURCE，CLASS，RUNTIME（保留的时间最长）
+
+

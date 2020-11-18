@@ -56,6 +56,29 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    public User(String username, String sex, Date birthday, String address) {
+        this.username = username;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.address = address;
+    }
+
+    public User(int uid, String username, String sex, Date birthday, String address) {
+        this.uid = uid;
+        this.username = username;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.address = address;
+    }
+
+    public User(int uid, String username) {
+        this.uid = uid;
+        this.username = username;
+    }
+
+    public User() {
+    }
+
     @Override
     public String toString() {
         return "User{" +

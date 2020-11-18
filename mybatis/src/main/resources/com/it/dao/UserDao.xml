@@ -11,7 +11,7 @@
     </sql>
 
     <select id="findByQueryVo" parameterType="com.it.vo.QueryVo" resultType="com.it.vo.User">
-      <!-- SELECT * from t_user where uid=#{user.uid} and username like #{user.username}-->
+        <!-- SELECT * from t_user where uid=#{user.uid} and username like #{user.username}-->
         <!--方式一：使用where 1=1 拼接条件-->
         <!--SELECT * from t_user where 1=1
         <if test="user!=null and user.uid!=0">
@@ -39,9 +39,9 @@
     <select id="findByQueryVo2" resultType="com.it.vo.User" parameterType="com.it.vo.QueryVo">
         select uid ,username ,birthday ,sex, address from t_user
         <where>
-           <if test="user!=null and user.username!=null and user.username.length>0">
-               AND username like #{user.username}
-           </if>
+            <if test="user!=null and user.username!=null and user.username.length>0">
+                AND username like #{user.username}
+            </if>
             <if test="ids!=null">
                 <!--
                 collection:pojo中集合的属性名；
@@ -51,7 +51,7 @@
                 close:语句的结尾
                 -->
                 <foreach collection="ids" open="and (uid=" item="id" separator="or uid=" close=")">
-                  #{id}
+                    #{id}
                 </foreach>
             </if>
         </where>
@@ -74,4 +74,55 @@
             </if>
         </where>
     </select>
+
+    <!--单个插入-->
+    <insert id="insert" parameterType="com.it.vo.User">
+        INSERT INTO t_user
+        (
+        username,
+        sex,
+        birthday,
+        address
+        )
+        VALUES
+        (
+        #{username},
+        #{sex},
+        #{birthday},
+        #{address}
+        )
+    </insert>
+
+    <!--批量插入-->
+    <insert id="batchInsert" parameterType="com.it.vo.User">
+        INSERT INTO t_user
+        (
+        uid,
+        username,
+        sex,
+        birthday,
+        address
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.uid},
+            #{item.username},
+            #{item.sex},
+            #{item.birthday},
+            #{item.address}
+            )
+        </foreach>
+    </insert>
+
+    <!--批量更新-->
+    <update id="batchUpdate" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE t_user
+            <set>
+                username=#{item.username}
+            </set>
+            where uid=#{item.uid}
+        </foreach>
+    </update>
 </mapper>

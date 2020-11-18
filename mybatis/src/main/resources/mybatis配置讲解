@@ -114,6 +114,13 @@
         	</where>
         </select>
 
+    注意：mybatis批量更新有个坑：要开启允许多条语句执行：
+    在数据库连接中进行配置，加上：&allowMultiQueries=true开启允许执行多条语句，如：
+    jdbc.driver=com.mysql.jdbc.Driver
+    jdbc.url=jdbc:mysql://localhost:3306/mybatis_day01?characterEncoding=UTF-8&allowMultiQueries=true
+    jdbc.username=root
+    jdbc.password=root
+
 
 
 
