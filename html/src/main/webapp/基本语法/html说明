@@ -46,3 +46,75 @@
         <a href="http://www.baidu.com" target="_blank">百度</a>
         <br/>
         <a href="caseDemo.html">连接到Case</a>
+
+7.表格标签：
+    1.表格：由`<table>`标签定义；
+        行：每个表格里有若干行`<tr>`；
+        单元格：每行被分割为若干单元格`<td>
+            单元格里可以包含文本、图片、列表、段落、表单、水平线、表格等
+
+     <!--三行三列表格
+        table标签：表格
+            border属性:边框
+            width属性:宽度，可以写具体值，也可以写百分比(占上级标签的百分比)
+            height属性：高度
+            align属性：居左，居中，居右
+            bgcolor属性：背景颜色
+            cellspacing属性:设置格子之间的间隔
+        tr标签：行标签
+        td:列标签
+        -->
+
+      <!--单元格合并口诀：
+             1.删除要合并的单元格，只留最前方的一个；
+             2.如果是行合并，设置rowspan属性，几个单元格合并，值就是几
+             3.如果是列合并，设置colspan属性，几个单元格合并，值就是几
+             -->
+
+     --实例：
+    <table border="1px" width="50%" align="center" bgcolor="#7fffd4" cellspacing="10px">
+            <caption><font size="7" face="宋体">表格标题1</font></caption>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </table>
+        <hr/>
+        <!--单元格合并口诀：
+        1.删除要合并的单元格，只留最前方的一个；
+        2.如果是行合并，设置rowspan属性，几个单元格合并，值就是几
+        3.如果是列合并，设置colspan属性，几个单元格合并，值就是几
+        -->
+        <table border="1px" width="50%" align="center" bgcolor="#7fffd4" cellspacing="10px">
+            <caption><font size="7" color="red">单元格合并</font></caption>
+            <tr>
+                <!--合并第一列和第二列-->
+                <td colspan="2">1</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <!--合并第二行和第三行，第6个单元格和第9个单元格-->
+                <td rowspan="2">6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+        </table>
+
+8.表单标签：
+
+

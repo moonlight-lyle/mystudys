@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签</title>
+</head>
+<body>
+    <!--表单标签：form
+    <form action="">:
+        action属性：设置表单数据的提交地址
+        method属性：设置提交的方式：get,post等，默认是get方式，数据可见，不安全
+    <input type="text">：输入文本框
+    <input type="password">：密码文本框，输入内容不可见
+    <input type="radio">：单选框
+        公共属性：name:作用一：给单选和复选分组,单选时：多个单选的name属性值要一致
+            注意：name属性的第二个作用：要提交数据，name属性一定要设置,name属性设置的值作为key
+        公共属性：value：作用一：给按钮起名字
+            作用二：作为value提交，单选和复选框一定要设置value属性
+    <input type="checkbox">：复选框
+    <input type="file">:选择文件
+    <select>
+                <option>北京</option>
+                <option>上海</option>
+                <option>广州</option>
+                <option>深圳</option>
+            </select>：选择框
+    <textarea rows="30" cols="40"></textarea>：文本域
+    <input type="submit">：提交
+        value属性：给按钮起名字
+    <input type="reset">:重置按钮：清除输入的内容
+    -->
+    <form action="http://www.baidu.com" method="post">
+        用户名：<input type="text" name="username"><br/>
+        密码：<input type="password" name="password"><br/>
+        性别：<input type="radio" name="sex" value="boy">男<input type="radio" name="sex" value="girl">女<br/>
+        爱好：<input type="checkbox" name="hobby" value="basketball">篮球<input type="checkbox" name="hobby" value="football">足球<input type="checkbox" name="hobby" value="movie">看电影<input type="checkbox" name="hobby" value="code">敲代码<br/>
+        图像：<input type="file" name="icon"><br/>
+        籍贯：<select name="address">
+                <option>北京</option>
+                <option>上海</option>
+                <option>广州</option>
+                <option>深圳</option>
+            </select><br/>
+        自我介绍：<br/>
+        <textarea rows="30" cols="40" name="introduce"></textarea><br/>
+        <input type="submit" value="注册"><input type="reset"><input type="button" value="空白按钮">
+    </form>
+</body>
+</html>
