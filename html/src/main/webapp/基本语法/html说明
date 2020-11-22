@@ -116,5 +116,60 @@
         </table>
 
 8.表单标签：
+    <!--表单标签：form
+        <form action="" method="post">:
+            action属性：设置表单数据的提交地址
+            method属性：设置提交的方式：get,post等，默认是get方式，数据可见，不安全
+        <input type="text">：输入文本框
+        <input type="password">：密码文本框，输入内容不可见
+        <input type="radio">：单选框
+            公共属性：name:作用一：给单选和复选分组,单选时：多个单选的name属性值要一致
+                注意：name属性的第二个作用：要提交数据，name属性一定要设置,name属性设置的值作为key
+            公共属性：value：作用一：给按钮起名字
+                作用二：作为value提交，单选和复选框一定要设置value属性
+        <input type="checkbox">：复选框
+        <input type="file">:选择文件
+        <select>
+                    <option>北京</option>
+                    <option>上海</option>
+                    <option>广州</option>
+                    <option>深圳</option>
+                </select>：选择框
+        <textarea rows="30" cols="40"></textarea>：文本域
+        <input type="submit">：提交
+            value属性：给按钮起名字
+        <input type="reset">:重置按钮：清除输入的内容
+        <input type="hidden" name="id" value="10">：隐藏字段，页面上看不到
+         表单默认值设置：
+                1.文本框：通过value属性设置
+                2.单选框、复选框：通过checked属性设置：checked="checked"
+                3.select类型：通过selected属性设置：selected="selected"
+                4.textarea类型：直接在标签中写，例如：
+                    <textarea rows="30" cols="40" name="introduce">你好，我是Xxx</textarea><br/>
+        -->
+        <form action="http://www.baidu.com" method="post">
+            <input type="hidden" name="id" value="10">
+            用户名：<input type="text" name="username"><br/>
+            密码：<input type="password" name="password"><br/>
+            性别：<input type="radio" name="sex" value="boy">男<input type="radio" name="sex" value="girl">女<br/>
+            爱好：<input type="checkbox" name="hobby" value="basketball">篮球<input type="checkbox" name="hobby" value="football">足球<input type="checkbox" name="hobby" value="movie">看电影<input type="checkbox" name="hobby" value="code">敲代码<br/>
+            图像：<input type="file" name="icon"><br/>
+            籍贯：<select name="address">
+                    <option>北京</option>
+                    <option>上海</option>
+                    <option>广州</option>
+                    <option>深圳</option>
+                </select><br/>
+            自我介绍：<br/>
+            <textarea rows="30" cols="40" name="introduce"></textarea><br/>
+            <input type="submit" value="注册"><input type="reset"><input type="button" value="空白按钮">
+        </form>
+
+9.CSS介绍：
+    CSS是层叠样式表，一般而言，html负责展示数据，CSS负责装饰，使页面显得更好看。
+    可以认为：html当做毛坯房, CSS当做装修
+10.div和span：
+     1. div 就是一个标签. 是一个容器, 块级元素, div内部可以放任何标签(body,html等不行)
+     2. span就是一个标签.  是一个文本容器, 行内元素, span标签中只能嵌套文本/图片/超链接
 
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js正则表达式</title>
+</head>
+    <!--
+        1.创建正则对象：
+        - 对象形式：`var reg = new RegExp("正则表达式")`
+        - 直接量形式：`var reg = /正则表达式/;`（推荐使用这种方式）
+        2.调用方法：
+        `test(string)`
+    -->
+<body>
+    输入校验：<input type="text">
+</body>
+    <script>
+        //任意数字出现3次
+        var reg01=/^\d{3}$/;
+        console.log(reg01.test("1231"));
+
+        //2.只能是英文字母的, 出现6~10次之间
+        var reg2  =/^[a-zA-Z]{6,10}$/;
+        var str2 = "abcdef11g";
+        //alert(reg2.test(str2));
+
+        //3 用户名：只能由英文字母和数字组成，长度为4～16个字符，并且以英文字母开头
+        var reg3  =/^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+        var str3 = "zs";
+        // alert(reg3.test(str3));
+
+
+        //4. 手机号码: 以1开头, 第二位是3,4,5,6,7,8,9的11位数字
+        //var reg4  =/^1[3456789]\d{9}$/i; //忽略大小写的
+        var reg4  =/^1[3456789]\d{9}$/; //不忽略大小写的
+        var str4 = "188245899";
+        alert(reg4.test(str4));
+    </script>
+</html>

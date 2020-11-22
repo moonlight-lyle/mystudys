@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘相关事件</title>
+</head>
+<body>
+    键盘相关事件：<input type="text" onkeydown="_onkeydown()" onkeypress="_onkeypress()" onkeyup="_onkeyup(this)">
+</body>
+    <script>
+       function _onkeydown() {
+            console.log("键盘按下了")
+       }
+       function _onkeypress() {
+            console.log("键盘被按住了")
+       }
+       function _onkeyup(obj) {
+           console.log("键盘抬起了"+obj.value)
+       }
+
+    </script>
+</html>

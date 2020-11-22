@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>焦点事件</title>
+</head>
+<body>
+    焦点事件输入框：<input id="inputId" type="text" value="hello..." onfocus="getFocus()" onblur="loseFocus(this)">
+</body>
+    <script>
+        function getFocus() {
+            //alert("获得了焦点。。。")
+            //获取标签属性的值.
+            var value=document.getElementById("inputId").value
+            console.log("获得了焦点。。。"+value)
+        }
+        //接收函数传入的当前对象
+        function loseFocus(obj) {
+            //alert("失去了焦点。。。")
+            //obj等价于document.getElementById("inputId")
+            console.log("失去了焦点。。。"+obj.value)
+        }
+    </script>
+</html>

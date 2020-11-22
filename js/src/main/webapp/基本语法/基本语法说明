@@ -1,13 +1,19 @@
+什么是JS？
+    JS，全称JavaScript，是一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。
+    作用：
+        1.操作浏览器；
+        2.操作网页(html，让html动起来)
 1.变量：
     js中变量使用var声明，且js是弱类型语言，没有java中的类型；
     var i = 10;   var str = "哈哈"；
+    同时定义多个变量可以用","隔开，公用一个‘var’关键字. var c = 45,d='qwe',f='68';
 
 2.js中的5种数据类型：
     `number`数值类型`1`, `2`, `3`, `3.14`
     `boolean`布尔类型`true`, `false`
     `string`字符串类型`"hello"`, 'hello'
     `object`对象类型`new Date()`,  `null`
-    `undefined`未定义类型var a;
+    `undefined`未定义类型，var a，但是未赋值，则a就是undefined;
     判断变量的类型：console.log(typeof(变量名))
 
 3.运算符：
@@ -15,6 +21,8 @@
     var j = "2";
     alert(i==j); // ==比较的仅仅是数值, true
     alert(i===j); // ===比较的是数值和类型.false
+    注意：number类型和字符串做-,*,/的时候,字符串自动的进行类型转换,
+    前提字符串里面的数值要满足**number**类型
 
 4.循环语句：
      //99乘法表
@@ -38,7 +46,7 @@
             [return 返回值;]
         }
 
-    匿名函数：
+    匿名函数：常用于作为方法的参数
         function(形参列表){
             函数体
             [return 返回值;]
@@ -47,6 +55,7 @@
 6.事件：
     普通函数方式：标签属性
         <标签 属性="js代码，调用函数"></标签>
+        <input type="button" value="点我吧" onclick="sayHello()">
     匿名函数方式：
         <script>
             标签对象.事件属性 = function(){
@@ -55,7 +64,45 @@
         </script>
 
 7.数组创建：
-    注：js中数组长度可变，没有数组索引越界
+    注：js中数组长度可变，没有数组索引越界，并且数组中的元素可以存放不同类型的数据
     - var arr = new Array(size)`
     - `var arr = new Array(element1, element2, element3, ...)`
     - `var arr = [element1, element2, element3, ...];`
+
+8.常见事件：
+    属性 此事件发生在何时...
+    onclick：点击事件
+    ondblclick：双击事件
+    onchange：内容改变
+    onblur：失去焦点
+    onfocus：获得焦点
+    onload：页面加载完成
+    onsubmit：提交事件
+    onkeydown：键盘某个按键按下
+    onkeypress：键盘某个按键被按住。
+    onkeyup：键盘某个按键被松开。
+    onmousedown：鼠标按钮被按下
+    onmouseup：鼠标按键被松开。
+    onmouseout：鼠标从某元素移开
+    omouseover：鼠标移到某元素之上。
+    onmousemove：鼠标被移动
+
+9.正则表达式：
+    1.创建正则对象：
+        - 对象形式：`var reg = new RegExp("正则表达式")`
+        - 直接量形式：`var reg = /正则表达式/;`（推荐使用这种方式）
+    2.调用方法：
+        `test(string)`
+
+10.Date对象
+    1.创建日期对象：
+        var myDate =  new Date();
+    2.调用方法：
+         //2.调用方法
+        console.log("年:" + myDate.getFullYear());
+        console.log("月:" + (myDate.getMonth()+1));
+        console.log("日:" + myDate.getDate());
+        console.log("时:" + myDate.getHours());
+        console.log("分:" + myDate.getMinutes());
+        console.log("秒:" + myDate.getSeconds());
+        console.log("毫秒:" + myDate.getMilliseconds());

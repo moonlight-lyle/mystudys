@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容改变onchange事件</title>
+</head>
+<body>
+    城市：<select onchange="changeCity(this)">
+        <option>深圳</option>
+        <option>上海</option>
+        <option>广州</option>
+        <option>北京</option>
+    </select>
+</body>
+    <script>
+        function changeCity(obj) {
+            alert("城市变成了"+obj.value)
+        }
+    </script>
+
+</html>
