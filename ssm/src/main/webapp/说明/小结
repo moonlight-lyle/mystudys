@@ -1,0 +1,12 @@
+ssm整合步骤：
+一、基本环境准备
+    1.创建数据库和表
+    2.创建工程（war），导入坐标
+    3.创建pojo
+    4.拷贝log4j配置文件
+二、Spring整合SpringMVC，SpringMVC其实就是spring家族的一个产品，该步骤只是搭建SpringMVC运行环境
+    1.初级版本(SpringMVC独立运行)
+        * 创建Controller类，定义方法，添加注解；
+        * 创建springMVC的配置文件，springmvc.xml(开启包扫描，配置视图解析器，配置注解驱动)
+        * 在web.xml中配置核心控制器（初始化参数，加载配置文件，启动项）和编码过滤器
+        * 测试
