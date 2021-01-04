@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot_user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+  #配置mapper的映射文件的位置，配置该配置后，接口包路径和映射文件包路径可以不一致
+  mybatis:
+    mapper-locations: classpath*:com/it/dao/*Mapper.xml
+  application:
+    name: user
+server:
+  port: 25501
+pagehelper:
+helperDialect: mysql
+reasonable: true
+supportMethodsArguments: true
+params: count=countSql
+
+
