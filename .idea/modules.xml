@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/export/export.iml" filepath="$PROJECT_DIR$/export/export.iml" />
+      <module fileurl="file://$PROJECT_DIR$/html/html.iml" filepath="$PROJECT_DIR$/html/html.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js/js.iml" filepath="$PROJECT_DIR$/js/js.iml" />
+      <module fileurl="file://$PROJECT_DIR$/json/json.iml" filepath="$PROJECT_DIR$/json/json.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myMVC/myMVC.iml" filepath="$PROJECT_DIR$/myMVC/myMVC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis/mybatis.iml" filepath="$PROJECT_DIR$/mybatis/mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_advance/mybatis_advance.iml" filepath="$PROJECT_DIR$/mybatis_advance/mybatis_advance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mystudys.iml" filepath="$PROJECT_DIR$/.idea/mystudys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myutils/myutils.iml" filepath="$PROJECT_DIR$/myutils/myutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practice/practice.iml" filepath="$PROJECT_DIR$/practice/practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet/servlet.iml" filepath="$PROJECT_DIR$/servlet/servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_hello/springboot_hello.iml" filepath="$PROJECT_DIR$/springboot_hello/springboot_hello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssm/ssm.iml" filepath="$PROJECT_DIR$/ssm/ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vue_demo/vue_demo.iml" filepath="$PROJECT_DIR$/vue_demo/vue_demo.iml" />
+    </modules>
+  </component>
+</project>

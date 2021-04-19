@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springboot_hello" />
+        <module name="myutils" />
+        <module name="myMVC" />
+        <module name="mybatis" />
+        <module name="mybatis_advance" />
+        <module name="json" />
+        <module name="vue_demo" />
+        <module name="servlet" />
+        <module name="html" />
+        <module name="export" />
+        <module name="js" />
+        <module name="ssm" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="export" target="8" />
+      <module name="html" target="1.8" />
+      <module name="js" target="1.8" />
+      <module name="json" target="1.5" />
+      <module name="mybatis" target="1.8" />
+      <module name="mybatis_advance" target="1.8" />
+      <module name="myMVC" target="1.8" />
+      <module name="myutils" target="8" />
+      <module name="servlet" target="1.8" />
+      <module name="springboot_hello" target="1.8" />
+      <module name="ssm" target="1.8" />
+      <module name="vue_demo" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot_hello" options="-parameters" />
+    </option>
+  </component>
+</project>
